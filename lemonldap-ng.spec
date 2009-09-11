@@ -1,7 +1,7 @@
 Name:		lemonldap-ng
 Summary:	A modular Web-SSO based on Apache::Session modules
 Version:	0.9.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 URL:		http://wiki.lemonldap.objectweb.org/xwiki/bin/view/NG/Presentation
 Source:		http://download.forge.objectweb.org/lemonldap/lemonldap-ng-%{version}.tar.gz
 License:	Artistic
