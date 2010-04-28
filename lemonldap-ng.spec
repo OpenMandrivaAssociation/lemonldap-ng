@@ -1,7 +1,7 @@
 Name:		lemonldap-ng
 Summary:	A modular Web-SSO based on Apache::Session modules
 Version:	1.0
-Release:	%mkrel 0.1.rc1
+Release:	%mkrel 0.2.rc1
 URL:		http://wiki.lemonldap.objectweb.org/xwiki/bin/view/NG/Presentation
 Source:		http://download.forge.objectweb.org/lemonldap/lemonldap-ng-%{version}rc1.tar.gz
 License:	Artistic
@@ -23,7 +23,14 @@ all modules developed for Lemonldap may not work with Lemonldap::NG.
 %setup -q -n %{name}-%{version}rc1
 
 %build
-%{__make}
+%{__make} INSTALLSITEBIN=%{_bindir} \
+	  INSTALLSITESCRIPT=%{_bindir} INSTALLSITEMAN1DIR=%{_mandir}/man1 \
+	  INSTALLSITEMAN3DIR=%{_mandir}/man3 INSTALLSITELIB=%perl_sitelib \
+	  INSTALLSITEARCH=%perl_sitearch DOCUMENTROOT=%{_datadir}/%{name} \
+	  CONF=%{_sysconfdir} BINDIR=%{_bindir} CRONDIR=%{_sysconfdir}/cron.d \
+	  DATADIR=%{_var}/lib/%{name} HANDLERDIR=%{_datadir}/%{name}/handler \
+	  TOOLSDIR=%{_datadir}/%{name}/tools EXAMPLESDIR=%{_datadir}/%{name}/examples \
+	  CONFDIR=%{_sysconfdir}/%{name}
 
 %install
 %{__rm} -Rf %{buildroot}
